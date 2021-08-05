@@ -63,8 +63,8 @@ describe('basic UI tests', () => {
 
   describe('Home Page', () => {
     it('should be able to open main page', async () => {
-      browser.sleep(2000);
       await browser.get(url);
+      await wait(10000);
       const title = await browser.getTitle();
       console.log({ title });
       expect(title).equal('Home | Insight');
@@ -140,7 +140,7 @@ describe('basic UI tests', () => {
       const blockIdToSearch = '12';
 
       await browser.get(`${url}block/${blockIdToSearch}`);
-
+      await wait(10000);
       const currentUrl = await browser.getCurrentUrl();
       expect(currentUrl).equal(`${url}block/${blockIdToSearch}`);
 
