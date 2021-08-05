@@ -62,6 +62,12 @@ describe('basic UI tests', () => {
 
   describe('Home Page', () => {
     console.log('HOME PAGE');
+    it('should output', () => {
+      browser.waitForAngularEnabled(false);
+      browser.get(url).then(() => (browser.getPageSource())).then((txt) => {
+        console.log(txt);
+      });
+    });
     it('should be able to open main page', async () => {
       browser.waitForAngularEnabled(false);
       console.log({ url });
