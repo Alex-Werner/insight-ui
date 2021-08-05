@@ -38,10 +38,9 @@ describe('basic UI tests', () => {
     [masterNode] = await startInsightUI.many(1);
 
     url = `http://127.0.0.1:${masterNode.insightUi.options.getUiPort()}/insight-ui/`;
-
+    console.log('Running at', url);
     await masterNode.dashCore.getApi().generate(15);
   });
-
   afterAll(async () => {
     const instances = [
       masterNode,
