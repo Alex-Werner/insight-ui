@@ -37,7 +37,7 @@ describe('basic UI tests', () => {
 
     [masterNode] = await startInsightUI.many(1);
 
-    url = `http://127.0.0.1:${masterNode.insightUi.options.getUiPort()}/insight/`;
+    url = `http://127.0.0.1:${masterNode.insightUi.options.getUiPort()}/insight-ui/`;
 
     await masterNode.dashCore.getApi().generate(15);
   });
