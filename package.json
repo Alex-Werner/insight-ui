@@ -71,6 +71,6 @@
     "grunt-macreload": "*",
     "grunt-markdown": "~0.7.0",
     "mocha": "^6.1.3",
-    "protractor": "2.5.1"
+    "protractor": "2.0.0"
   }
 }
