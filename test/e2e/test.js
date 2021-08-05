@@ -62,7 +62,6 @@ describe('basic UI tests', () => {
 
   describe('Home Page', () => {
     it('should be able to open main page', async () => {
-      browser.waitForAngularEnabled(false);
       await browser.get(url);
       const title = await browser.getTitle();
       console.log({ title });
@@ -136,7 +135,6 @@ describe('basic UI tests', () => {
       expect(infoErrors).equal('');
     });
     it('should be able to route to block number', async () => {
-      browser.waitForAngular(true);
       const blockIdToSearch = '12';
 
       await browser.get(`${url}block/${blockIdToSearch}`);
