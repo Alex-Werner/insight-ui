@@ -1,5 +1,4 @@
 const { expect } = require('chai');
-const { browser } = require('protractor');
 
 const startInsightUI = require('../../lib/test/startInsightUI');
 const wait = require('../../lib/test/util/wait');
@@ -62,8 +61,11 @@ describe('basic UI tests', () => {
   });
 
   describe('Home Page', () => {
+    console.log('HOME PAGE');
     it('should be able to open main page', async () => {
+      browser.waitForAngularEnabled(false);
       console.log({ url });
+      console.log('browser', browser);
       await browser.get(url);
       const title = await browser.getTitle();
       console.log({ title });
