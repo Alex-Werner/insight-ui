@@ -60,6 +60,14 @@ describe('basic UI tests', () => {
     jasmine.DEFAULT_TIMEOUT_INTERVAL = originalTimeout;
   });
 
+  async function getCodeOfPage(pageurl) {
+    console.log('==============', pageurl);
+    browser.waitForAngularEnabled(false);
+    await browser.get(pageurl);
+    const code = await browser.getPageSource();
+    console.log({ code });
+    console.log('=============');
+  }
   describe('Home Page', () => {
     console.log('HOME PAGE');
     // it('should output', () => {
@@ -73,9 +81,12 @@ describe('basic UI tests', () => {
       // console.log({ url });
       // console.log('browser', browser);
       browser.waitForAngularEnabled(false);
-      await browser.get(url);
-      const code = await browser.getPageSource();
-      console.log({ code });
+      await getCodeOfPage(`http://127.0.0.1:${masterNode.insightUi.options.getUiPort()}`);
+      await getCodeOfPage(`http://127.0.0.1:${masterNode.insightUi.options.getUiPort()}/`);
+      await getCodeOfPage(`http://127.0.0.1:${masterNode.insightUi.options.getUiPort()}/insight`);
+      await getCodeOfPage(`http://127.0.0.1:${masterNode.insightUi.options.getUiPort()}/insight-ui`);
+      await getCodeOfPage(`http://127.0.0.1:${masterNode.insightUi.options.getUiPort()}/insight/`);
+      await getCodeOfPage(`http://127.0.0.1:${masterNode.insightUi.options.getUiPort()}/insight-ui/`);
       const title = await browser.getTitle();
       console.log({ title });
       expect(title).equal('Home | Insight');
