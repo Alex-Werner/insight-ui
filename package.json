@@ -49,7 +49,7 @@
     "watch": "grunt",
     "lint": "eslint .",
     "install-and-build": "npm install && npm run build",
-    "test": "export MOZ_HEADLESS=1 && webdriver-manager update && (webdriver-manager start > webdriver.log 2>&1 &) && sleep 30 && protractor ./test/e2e/conf.js",
+    "test": "webdriver-manager update && (webdriver-manager start > webdriver.log 2>&1 &) && sleep 30 && protractor ./test/e2e/conf.js",
     "prepublishOnly": "npm run build"
   },
   "dependencies": {},

@@ -7,17 +7,17 @@ exports.config = {
   specs: ['test.js'],
 
   multiCapabilities: [
-    {
-      browserName: 'firefox',
-      'moz:firefoxOptions': {
-        args: ['--headless'],
-      },
-    },
     // {
-    //   chromeOptions: {
+    //   browserName: 'firefox',
+    //   'moz:firefoxOptions': {
     //     args: ['--headless'],
     //   },
-    //   browserName: 'chrome',
     // },
+    {
+      chromeOptions: {
+        args: ['--headless'],
+      },
+      browserName: 'chrome',
+    },
   ],
 };
