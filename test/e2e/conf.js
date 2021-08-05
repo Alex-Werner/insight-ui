@@ -7,12 +7,12 @@ exports.config = {
   specs: ['test.js'],
 
   multiCapabilities: [
-    // {
-    //   browserName: 'firefox',
-    //   'moz:firefoxOptions': {
-    //     args: ['--headless'],
-    //   },
-    // },
+    {
+      browserName: 'firefox',
+      'moz:firefoxOptions': {
+        args: ['--headless'],
+      },
+    },
     {
       chromeOptions: {
         args: ['--headless', '--remote-debugging-port=9222'],
