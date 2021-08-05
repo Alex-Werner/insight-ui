@@ -52,6 +52,7 @@ describe('basic UI tests', () => {
   });
 
   beforeEach(() => {
+    await browser.waitForAngularEnabled(false);
     originalTimeout = jasmine.DEFAULT_TIMEOUT_INTERVAL;
     jasmine.DEFAULT_TIMEOUT_INTERVAL = 250000;
   });
@@ -62,6 +63,7 @@ describe('basic UI tests', () => {
 
   describe('Home Page', () => {
     it('should be able to open main page', async () => {
+      browser.sleep(2000);
       await browser.get(url);
       const title = await browser.getTitle();
       console.log({ title });
