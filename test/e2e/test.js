@@ -136,17 +136,15 @@ describe('basic UI tests', () => {
       expect(infoErrors).equal('');
     });
     it('should be able to route to block number', async () => {
+      browser.waitForAngular(true);
       const blockIdToSearch = '12';
 
       await browser.get(`${url}block/${blockIdToSearch}`);
 
       const currentUrl = await browser.getCurrentUrl();
       expect(currentUrl).equal(`${url}block/${blockIdToSearch}`);
-      console.log({ currentUrl });
-      console.log(await browser.getPageSource());
+
       const blockId = (await blockPage.getBlockId()).replace('Block #', '');
-      console.log(blockPage);
-      console.log({ blockId });
       expect(blockId).equal(blockIdToSearch);
       blockHash = await blockPage.getBlockHash();
 
