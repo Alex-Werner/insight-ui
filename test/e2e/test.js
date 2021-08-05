@@ -38,7 +38,7 @@ describe('basic UI tests', () => {
 
     [masterNode] = await startInsightUI.many(1);
 
-    url = `http://127.0.0.1:${masterNode.insightUi.options.getUiPort()}/insight-ui/`;
+    url = `http://127.0.0.1:${masterNode.insightUi.options.getUiPort()}/insight/`;
     console.log('Running at', url);
     await masterNode.dashCore.getApi().generate(15);
   });
@@ -77,16 +77,17 @@ describe('basic UI tests', () => {
     //   });
     // });
     it('should be able to open main page', async () => {
-      // browser.waitForAngularEnabled(false);
+      browser.waitForAngularEnabled(false);
       // console.log({ url });
       // console.log('browser', browser);
-      browser.waitForAngularEnabled(false);
-      await getCodeOfPage(`http://127.0.0.1:${masterNode.insightUi.options.getUiPort()}`);
-      await getCodeOfPage(`http://127.0.0.1:${masterNode.insightUi.options.getUiPort()}/`);
-      await getCodeOfPage(`http://127.0.0.1:${masterNode.insightUi.options.getUiPort()}/insight`);
-      await getCodeOfPage(`http://127.0.0.1:${masterNode.insightUi.options.getUiPort()}/insight-ui`);
-      await getCodeOfPage(`http://127.0.0.1:${masterNode.insightUi.options.getUiPort()}/insight/`);
-      await getCodeOfPage(`http://127.0.0.1:${masterNode.insightUi.options.getUiPort()}/insight-ui/`);
+      // browser.waitForAngularEnabled(false);
+      // await getCodeOfPage(`http://127.0.0.1:${masterNode.insightUi.options.getUiPort()}`);
+      // await getCodeOfPage(`http://127.0.0.1:${masterNode.insightUi.options.getUiPort()}/`);
+      // await getCodeOfPage(`http://127.0.0.1:${masterNode.insightUi.options.getUiPort()}/insight`);
+      // await getCodeOfPage(`http://127.0.0.1:${masterNode.insightUi.options.getUiPort()}/insight-ui`);
+      // await getCodeOfPage(`http://127.0.0.1:${masterNode.insightUi.options.getUiPort()}/insight/`);
+      // await getCodeOfPage(`http://127.0.0.1:${masterNode.insightUi.options.getUiPort()}/insight-ui/`);
+      await browser.get(url);
       const title = await browser.getTitle();
       console.log({ title });
       expect(title).equal('Home | Insight');
