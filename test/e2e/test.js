@@ -1,4 +1,6 @@
 const { expect } = require('chai');
+const { browser } = require('protractor');
+
 const startInsightUI = require('../../lib/test/startInsightUI');
 const wait = require('../../lib/test/util/wait');
 
@@ -37,7 +39,7 @@ describe('basic UI tests', () => {
 
     [masterNode] = await startInsightUI.many(1);
 
-    url = `http://127.0.0.1:${masterNode.insightUi.options.getUiPort()}/insight-ui/`;
+    url = `http://127.0.0.1:${masterNode.insightUi.options.getUiPort()}/insight-ui`;
     console.log('Running at', url);
     await masterNode.dashCore.getApi().generate(15);
   });
@@ -61,8 +63,10 @@ describe('basic UI tests', () => {
 
   describe('Home Page', () => {
     it('should be able to open main page', async () => {
+      console.log({ url });
       await browser.get(url);
       const title = await browser.getTitle();
+      console.log({ title });
       expect(title).equal('Home | Insight');
     });
 
