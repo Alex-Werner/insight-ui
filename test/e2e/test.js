@@ -142,8 +142,10 @@ describe('basic UI tests', () => {
 
       const currentUrl = await browser.getCurrentUrl();
       expect(currentUrl).equal(`${url}block/${blockIdToSearch}`);
-
+      console.log(await browser.getPageSource());
       const blockId = (await blockPage.getBlockId()).replace('Block #', '');
+      console.log(blockPage);
+      console.log({ blockId });
       expect(blockId).equal(blockIdToSearch);
       blockHash = await blockPage.getBlockHash();
 
