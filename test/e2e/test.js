@@ -70,9 +70,12 @@ describe('basic UI tests', () => {
     // });
     it('should be able to open main page', async () => {
       // browser.waitForAngularEnabled(false);
-      console.log({ url });
-      console.log('browser', browser);
+      // console.log({ url });
+      // console.log('browser', browser);
+      browser.waitForAngularEnabled(false);
       await browser.get(url);
+      const code = await browser.getPageSource();
+      console.log({ code });
       const title = await browser.getTitle();
       console.log({ title });
       expect(title).equal('Home | Insight');
